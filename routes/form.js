@@ -57,7 +57,7 @@ router.post('/apps/upload-form', upload.single('image'), async (req, res) => {
 
     console.log('Recipient Email:', recipientEmail);
 
-    const allowedOrigin = corsDomain ? corsDomain : 'https://www.wheeloutletnj.com/';
+    const allowedOrigin = corsDomain ? corsDomain : 'https://www.storeul.com/';
     
     res.header("Access-Control-Allow-Origin", allowedOrigin);
     res.header("Access-Control-Allow-Methods", "POST");
@@ -67,7 +67,7 @@ router.post('/apps/upload-form', upload.single('image'), async (req, res) => {
 
 sendSmtpEmail.subject = `Wholesale inquiry from ${firstName} ${lastName}`;
 sendSmtpEmail.sender = {
-    "name": "Wheeloutlet NJ",
+    "name": "",
     "email": senderEmail
 };
 sendSmtpEmail.to = [{
