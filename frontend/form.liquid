@@ -18,94 +18,143 @@
 }
 {% endschema %}
 
+<style>
+  #upload-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
+  #upload-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+  }
 
+  #upload-form input[type="text"],
+  #upload-form input[type="email"],
+  #upload-form input[type="tel"],
+  #upload-form input[type="number"],
+  #upload-form input[type="url"],
+  #upload-form input[type="file"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  #upload-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #upload-form button:hover {
+    background-color: #0056b3;
+  }
+
+  #upload-form input[type="file"] {
+    padding: 0;
+  }
+</style>
 
 <form id="upload-form" action="/apps/upload-form" method="post" enctype="multipart/form-data">
-    <label for="companyName">Company Name:</label>
-    <input type="text" id="companyName" name="companyName" required>
-  
-    <label for="companyEmail">Company Email:</label>
-    <input type="email" id="companyEmail" name="companyEmail" required>
-  
-    <label for="companyPhone">Company Phone:</label>
-    <input type="tel" id="companyPhone" name="companyPhone" required>
-  
-    <label for="businessType">Business Type:</label>
-    <input type="text" id="businessType" name="businessType" required>
-  
-    <label for="FEIN">FEIN:</label>
-    <input type="text" id="FEIN" name="FEIN" required>
-  
-    <label for="yearEstablished">Year Established:</label>
-    <input type="number" id="yearEstablished" name="yearEstablished" required>
-  
-    <label for="companyWebsite">Company Website:</label>
-    <input type="url" id="companyWebsite" name="companyWebsite" required>
-  
-    <label for="socialMedia">Social Media Links:</label>
-    <input type="text" id="socialMedia" name="socialMedia">
-  
-    <label for="billingStreetAddress">Billing Street Address:</label>
-    <input type="text" id="billingStreetAddress" name="billingStreetAddress" required>
-  
-    <label for="billingCity">Billing City:</label>
-    <input type="text" id="billingCity" name="billingCity" required>
-  
-    <label for="billingState">Billing State:</label>
-    <input type="text" id="billingState" name="billingState" required>
-  
-    <label for="billingZipCode">Billing Zip Code:</label>
-    <input type="text" id="billingZipCode" name="billingZipCode" required>
-  
-    <label for="billingCountry">Billing Country:</label>
-    <input type="text" id="billingCountry" name="billingCountry" required>
-  
-    <label for="businessLocation">Is the business operating at the owner's residence?:</label>
-    <input type="text" id="businessLocation" name="businessLocation" required>
-  
-    <label for="shippingAddress">Shipping Address:</label>
-    <input type="text" id="shippingAddress" name="shippingAddress" required>
-  
-    <label for="shippingCity">Shipping City:</label>
-    <input type="text" id="shippingCity" name="shippingCity" required>
-  
-    <label for="shippingState">Shipping State:</label>
-    <input type="text" id="shippingState" name="shippingState" required>
-  
-    <label for="shippingZipCode">Shipping Zip Code:</label>
-    <input type="text" id="shippingZipCode" name="shippingZipCode" required>
-  
-    <label for="shippingCountry">Shipping Country:</label>
-    <input type="text" id="shippingCountry" name="shippingCountry" required>
-  
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required>
-  
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required>
-  
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-  
-    <label for="phone">Phone:</label>
-    <input type="tel" id="phone" name="phone" required>
-  
-    <label for="hereAbout">How did you hear about us?:</label>
-    <input type="text" id="hereAbout" name="hereAbout" required>
-  
-    <label for="recipientEmail">Recipient Email:</label>
-    <input type="email" id="recipientEmail" name="recipientEmail" required>
-  
-    <label for="corsDomain">CORS Domain:</label>
-    <input type="text" id="corsDomain" name="corsDomain">
-  
-    <label for="senderEmail">Sender Email:</label>
-    <input type="email" id="senderEmail" name="senderEmail" required>
-  
-    <label for="image">Upload Image:</label>
-    <input type="file" id="image" name="image" accept="image/jpeg, image/png" required>
-  
-    <button type="submit">Submit</button>
-  </form>
-  
+  <label for="companyName">Company Name:</label>
+  <input type="text" id="companyName" name="companyName" required>
+
+  <label for="companyEmail">Company Email:</label>
+  <input type="email" id="companyEmail" name="companyEmail" required>
+
+  <label for="companyPhone">Company Phone:</label>
+  <input type="tel" id="companyPhone" name="companyPhone" required>
+
+  <label for="businessType">Business Type:</label>
+  <input type="text" id="businessType" name="businessType" required>
+
+  <label for="FEIN">FEIN:</label>
+  <input type="text" id="FEIN" name="FEIN" required>
+
+  <label for="yearEstablished">Year Established:</label>
+  <input type="number" id="yearEstablished" name="yearEstablished" required>
+
+  <label for="companyWebsite">Company Website:</label>
+  <input type="url" id="companyWebsite" name="companyWebsite" required>
+
+  <label for="socialMedia">Social Media Links:</label>
+  <input type="text" id="socialMedia" name="socialMedia">
+
+  <label for="billingStreetAddress">Billing Street Address:</label>
+  <input type="text" id="billingStreetAddress" name="billingStreetAddress" required>
+
+  <label for="billingCity">Billing City:</label>
+  <input type="text" id="billingCity" name="billingCity" required>
+
+  <label for="billingState">Billing State:</label>
+  <input type="text" id="billingState" name="billingState" required>
+
+  <label for="billingZipCode">Billing Zip Code:</label>
+  <input type="text" id="billingZipCode" name="billingZipCode" required>
+
+  <label for="billingCountry">Billing Country:</label>
+  <input type="text" id="billingCountry" name="billingCountry" required>
+
+  <label for="businessLocation">Is the business operating at the owner's residence?:</label>
+  <input type="text" id="businessLocation" name="businessLocation" required>
+
+  <label for="shippingAddress">Shipping Address:</label>
+  <input type="text" id="shippingAddress" name="shippingAddress" required>
+
+  <label for="shippingCity">Shipping City:</label>
+  <input type="text" id="shippingCity" name="shippingCity" required>
+
+  <label for="shippingState">Shipping State:</label>
+  <input type="text" id="shippingState" name="shippingState" required>
+
+  <label for="shippingZipCode">Shipping Zip Code:</label>
+  <input type="text" id="shippingZipCode" name="shippingZipCode" required>
+
+  <label for="shippingCountry">Shipping Country:</label>
+  <input type="text" id="shippingCountry" name="shippingCountry" required>
+
+  <label for="firstName">First Name:</label>
+  <input type="text" id="firstName" name="firstName" required>
+
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" name="lastName" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="phone">Phone:</label>
+  <input type="tel" id="phone" name="phone" required>
+
+  <label for="hereAbout">How did you hear about us?:</label>
+  <input type="text" id="hereAbout" name="hereAbout" required>
+
+  <label for="recipientEmail">Recipient Email:</label>
+  <input type="email" id="recipientEmail" name="recipientEmail" required>
+
+  <label for="corsDomain">CORS Domain:</label>
+  <input type="text" id="corsDomain" name="corsDomain">
+
+  <label for="senderEmail">Sender Email:</label>
+  <input type="email" id="senderEmail" name="senderEmail" required>
+
+  <label for="image">Upload Image:</label>
+  <input type="file" id="image" name="image" accept="image/jpeg, image/png" required>
+
+  <button type="submit">Submit</button>
+</form>
